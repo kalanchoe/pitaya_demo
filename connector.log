@@ -1,0 +1,93 @@
+time="2024-03-13T12:52:51+08:00" level=info msg="registered handler connector.notifysessiondata, isRawArg: false" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="registered handler connector.setsessiondata, isRawArg: false" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="registered handler connector.getsessiondata, isRawArg: false" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="registered remote connectorremote.docs" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="registered remote connectorremote.remotefunc" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="registered remote sys.bindsession" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="registered remote sys.kick" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="registered remote sys.pushsession" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="registered remote connectorremote.descriptor" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="starting server connector:f2675108-f845-4573-bf4f-63d0514a2e7b" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="PROXY protocol is disabled for inbound connections" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="Waiting for Acceptor *acceptorwrapper.RateLimitingWrapper to start on addr :3250" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="Acceptor *acceptorwrapper.RateLimitingWrapper on addr [::]:3250 is now accepting connections" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="initializing all modules" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="initializing module: rpcClient" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="connecting to nats (client) with timeout of 2s" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="initializing module: rpcServer" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="connecting to nats (server) with timeout of 2s" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="initializing module: serviceDiscovery" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="Initializing ETCD client" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="sd: got leaseID: 694d8e35fc8d7619" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="server servers/room/1341046e-fcc8-49fb-a0c4-742b800d30a7 added by watcher" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="type: room, servers: map[1341046e-fcc8-49fb-a0c4-742b800d30a7:0xc000540d00]" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="server servers/connector/f2675108-f845-4573-bf4f-63d0514a2e7b added by watcher" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="type: room, servers: map[1341046e-fcc8-49fb-a0c4-742b800d30a7:0xc000540d00]" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="type: connector, servers: map[f2675108-f845-4573-bf4f-63d0514a2e7b:0xc0002b27c0]" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="type: room, servers: map[1341046e-fcc8-49fb-a0c4-742b800d30a7:0xc000540d00]" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="type: connector, servers: map[f2675108-f845-4573-bf4f-63d0514a2e7b:0xc0002b27c0]" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="SyncServers took : 609µs to run" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="initializing module: uniqueSession" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="module: rpcClient successfully loaded" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="module: rpcServer successfully loaded" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="module: serviceDiscovery successfully loaded" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="module: uniqueSession successfully loaded" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="all modules started!" source=pitaya
+time="2024-03-13T12:53:07+08:00" level=debug msg="New session established: Remote=127.0.0.1:53172, LastTime=1710305587" source=pitaya
+time="2024-03-13T12:53:07+08:00" level=error msg="Error reading next available message: wrong packet type" source=pitaya
+time="2024-03-13T12:53:07+08:00" level=debug msg="Session closed, ID=1, UID=, IP=127.0.0.1:53172" source=pitaya
+time="2024-03-13T12:53:07+08:00" level=debug msg="Session read goroutine exit, SessionID=1, UID=" source=pitaya
+time="2024-03-13T12:53:07+08:00" level=debug msg="Session handle goroutine exit, SessionID=1, UID=" source=pitaya
+time="2024-03-13T12:53:07+08:00" level=debug msg="New session established: Remote=127.0.0.1:53174, LastTime=1710305587" source=pitaya
+time="2024-03-13T12:53:07+08:00" level=error msg="Error reading next available message: wrong packet type" source=pitaya
+time="2024-03-13T12:53:07+08:00" level=debug msg="Session closed, ID=2, UID=, IP=127.0.0.1:53174" source=pitaya
+time="2024-03-13T12:53:07+08:00" level=debug msg="Session read goroutine exit, SessionID=2, UID=" source=pitaya
+time="2024-03-13T12:53:07+08:00" level=debug msg="Session handle goroutine exit, SessionID=2, UID=" source=pitaya
+time="2024-03-13T12:53:07+08:00" level=debug msg="New session established: Remote=127.0.0.1:53176, LastTime=1710305587" source=pitaya
+time="2024-03-13T12:53:07+08:00" level=error msg="Error reading next available message: wrong packet type" source=pitaya
+time="2024-03-13T12:53:07+08:00" level=debug msg="Session closed, ID=3, UID=, IP=127.0.0.1:53176" source=pitaya
+time="2024-03-13T12:53:07+08:00" level=debug msg="Session read goroutine exit, SessionID=3, UID=" source=pitaya
+time="2024-03-13T12:53:07+08:00" level=debug msg="Session handle goroutine exit, SessionID=3, UID=" source=pitaya
+time="2024-03-13T12:53:07+08:00" level=debug msg="New session established: Remote=127.0.0.1:53178, LastTime=1710305587" source=pitaya
+time="2024-03-13T12:53:07+08:00" level=debug msg="Received handshake packet" source=pitaya
+time="2024-03-13T12:53:07+08:00" level=debug msg="Session handshake Id=4, Remote=127.0.0.1:53178" source=pitaya
+time="2024-03-13T12:53:07+08:00" level=debug msg="Successfully saved handshake data" source=pitaya
+time="2024-03-13T12:53:07+08:00" level=debug msg="Receive handshake ACK Id=4, Remote=127.0.0.1:53178" source=pitaya
+time="2024-03-13T12:54:51+08:00" level=debug msg="type: room, servers: map[1341046e-fcc8-49fb-a0c4-742b800d30a7:0xc000540d00]" source=pitaya
+time="2024-03-13T12:54:51+08:00" level=debug msg="type: connector, servers: map[f2675108-f845-4573-bf4f-63d0514a2e7b:0xc0002b27c0]" source=pitaya
+time="2024-03-13T12:54:51+08:00" level=info msg="SyncServers took : 501.8µs to run" source=pitaya
+time="2024-03-13T12:56:51+08:00" level=debug msg="type: room, servers: map[1341046e-fcc8-49fb-a0c4-742b800d30a7:0xc000540d00]" source=pitaya
+time="2024-03-13T12:56:51+08:00" level=debug msg="type: connector, servers: map[f2675108-f845-4573-bf4f-63d0514a2e7b:0xc0002b27c0]" source=pitaya
+time="2024-03-13T12:56:51+08:00" level=info msg="SyncServers took : 456.5µs to run" source=pitaya
+time="2024-03-13T12:58:51+08:00" level=debug msg="type: connector, servers: map[f2675108-f845-4573-bf4f-63d0514a2e7b:0xc0002b27c0]" source=pitaya
+time="2024-03-13T12:58:51+08:00" level=debug msg="type: room, servers: map[1341046e-fcc8-49fb-a0c4-742b800d30a7:0xc000540d00]" source=pitaya
+time="2024-03-13T12:58:51+08:00" level=info msg="SyncServers took : 497.6µs to run" source=pitaya
+time="2024-03-13T12:59:13+08:00" level=debug msg="[rpc_client] sending remote nats request for route room.room.move with timeout of 5s" source=pitaya
+time="2024-03-13T12:59:13+08:00" level=error msg="error making call to target with id 1341046e-fcc8-49fb-a0c4-742b800d30a7, route room.room.move and host P110101583: %!w(*errors.Error=&{PIT-404 pitaya/handler: room.room.move not found map[]})" source=pitaya
+time="2024-03-13T12:59:13+08:00" level=error msg="Failed to process remote server: pitaya/handler: room.room.move not found" source=pitaya
+time="2024-03-13T12:59:13+08:00" level=debug msg="Type=Response, ID=4, UID=, MID=1, Data=67bytes" source=pitaya
+time="2024-03-13T13:00:27+08:00" level=debug msg="server 1341046e-fcc8-49fb-a0c4-742b800d30a7 deleted by watcher" source=pitaya
+time="2024-03-13T13:00:27+08:00" level=debug msg="type: room, servers: map[]" source=pitaya
+time="2024-03-13T13:00:27+08:00" level=debug msg="type: connector, servers: map[f2675108-f845-4573-bf4f-63d0514a2e7b:0xc0002b27c0]" source=pitaya
+time="2024-03-13T13:00:39+08:00" level=warning msg="got signal: terminated, shutting down..." source=pitaya
+time="2024-03-13T13:00:39+08:00" level=warning msg="server is stopping..." source=pitaya
+time="2024-03-13T13:00:39+08:00" level=info msg="closing all sessions, 1 sessions" source=pitaya
+time="2024-03-13T13:00:39+08:00" level=debug msg="Session closed, ID=4, UID=, IP=127.0.0.1:53178" source=pitaya
+time="2024-03-13T13:00:39+08:00" level=debug msg="Connection no longer available while reading next available message: read tcp 127.0.0.1:3250->127.0.0.1:53178: use of closed network connection" source=pitaya
+time="2024-03-13T13:00:39+08:00" level=debug msg="-1 sessions remaining" source=pitaya
+time="2024-03-13T13:00:39+08:00" level=info msg="finished closing sessions" source=pitaya
+time="2024-03-13T13:00:39+08:00" level=debug msg="waiting for etcd revoke" source=pitaya
+time="2024-03-13T13:00:39+08:00" level=debug msg="Session handle goroutine exit, SessionID=4, UID=" source=pitaya
+time="2024-03-13T13:00:39+08:00" level=debug msg="Session read goroutine exit, SessionID=4, UID=" source=pitaya
+time="2024-03-13T13:00:39+08:00" level=debug msg="server f2675108-f845-4573-bf4f-63d0514a2e7b deleted by watcher" source=pitaya
+time="2024-03-13T13:00:39+08:00" level=debug msg="type: room, servers: map[]" source=pitaya
+time="2024-03-13T13:00:39+08:00" level=debug msg="type: connector, servers: map[]" source=pitaya
+time="2024-03-13T13:00:39+08:00" level=debug msg="finished waiting for etcd revoke" source=pitaya
+time="2024-03-13T13:00:39+08:00" level=debug msg="stopping module: uniqueSession" source=pitaya
+time="2024-03-13T13:00:39+08:00" level=info msg="module: uniqueSession stopped!" source=pitaya
+time="2024-03-13T13:00:39+08:00" level=debug msg="stopping module: serviceDiscovery" source=pitaya
+time="2024-03-13T13:00:39+08:00" level=info msg="module: serviceDiscovery stopped!" source=pitaya
+time="2024-03-13T13:00:39+08:00" level=debug msg="stopping module: rpcServer" source=pitaya
+time="2024-03-13T13:00:39+08:00" level=info msg="module: rpcServer stopped!" source=pitaya
+time="2024-03-13T13:00:39+08:00" level=debug msg="stopping module: rpcClient" source=pitaya
+time="2024-03-13T13:00:39+08:00" level=info msg="module: rpcClient stopped!" source=pitaya

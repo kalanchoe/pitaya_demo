@@ -1,0 +1,104 @@
+time="2024-03-13T12:52:51+08:00" level=info msg="registered handler room.notifypush, isRawArg: false" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="registered handler room.sendrpc, isRawArg: false" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="registered handler room.setsessiondata, isRawArg: false" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="registered handler room.entry, isRawArg: true" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="registered handler room.getsessiondata, isRawArg: false" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="registered handler room.join, isRawArg: false" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="registered handler room.leave, isRawArg: false" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="registered handler room.message, isRawArg: false" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="registered remote sys.bindsession" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="registered remote sys.kick" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="registered remote sys.pushsession" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="registered remote room.join" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="registered remote room.sendrpc" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="starting server room:1341046e-fcc8-49fb-a0c4-742b800d30a7" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="initializing all modules" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="initializing module: rpcClient" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="connecting to nats (client) with timeout of 2s" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="initializing module: rpcServer" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="connecting to nats (server) with timeout of 2s" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="initializing module: serviceDiscovery" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="Initializing ETCD client" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="sd: got leaseID: 694d8e35fc8d7617" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="loading info from missing server: room/1341046e-fcc8-49fb-a0c4-742b800d30a7" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="adding server &{1341046e-fcc8-49fb-a0c4-742b800d30a7 room map[] false P110101583}" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="type: room, servers: map[1341046e-fcc8-49fb-a0c4-742b800d30a7:0xc000223980]" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="SyncServers took : 651.1µs to run" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="module: rpcClient successfully loaded" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="module: rpcServer successfully loaded" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="module: serviceDiscovery successfully loaded" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=info msg="all modules started!" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="server servers/room/1341046e-fcc8-49fb-a0c4-742b800d30a7 added by watcher" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="type: room, servers: map[1341046e-fcc8-49fb-a0c4-742b800d30a7:0xc000223980]" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="server servers/connector/f2675108-f845-4573-bf4f-63d0514a2e7b added by watcher" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="type: connector, servers: map[f2675108-f845-4573-bf4f-63d0514a2e7b:0xc00038e080]" source=pitaya
+time="2024-03-13T12:52:51+08:00" level=debug msg="type: room, servers: map[1341046e-fcc8-49fb-a0c4-742b800d30a7:0xc000223980]" source=pitaya
+UserCount: Time=> 2024-03-13 12:53:51.5649842 +0800 CST m=+60.011602501 Count=> 0 Error=> (0x0,0x0)
+OutboundBytes 0
+InboundBytes 0
+UserCount: Time=> 2024-03-13 12:53:51.565046 +0800 CST m=+60.011664301 Count=> 0 Error=> (0x0,0x0)
+OutboundBytes 0
+InboundBytes 0
+UserCount: Time=> 2024-03-13 12:54:51.565132 +0800 CST m=+120.011750301 Count=> 0 Error=> (0x0,0x0)
+OutboundBytes 0
+InboundBytes 0
+UserCount: Time=> 2024-03-13 12:54:51.5651912 +0800 CST m=+120.011809501 Count=> 0 Error=> (0x0,0x0)
+OutboundBytes 0
+InboundBytes 0
+time="2024-03-13T12:54:51+08:00" level=debug msg="type: room, servers: map[1341046e-fcc8-49fb-a0c4-742b800d30a7:0xc000223980]" source=pitaya
+time="2024-03-13T12:54:51+08:00" level=debug msg="type: connector, servers: map[f2675108-f845-4573-bf4f-63d0514a2e7b:0xc00038e080]" source=pitaya
+time="2024-03-13T12:54:51+08:00" level=info msg="SyncServers took : 1.1679ms to run" source=pitaya
+UserCount: Time=> 2024-03-13 12:55:51.5646161 +0800 CST m=+180.011234401 Count=> 0 Error=> (0x0,0x0)
+OutboundBytes 0
+InboundBytes 0
+UserCount: Time=> 2024-03-13 12:55:51.5646803 +0800 CST m=+180.011298601 Count=> 0 Error=> (0x0,0x0)
+OutboundBytes 0
+InboundBytes 0
+UserCount: Time=> 2024-03-13 12:56:51.5648195 +0800 CST m=+240.011437801 Count=> 0 Error=> (0x0,0x0)
+OutboundBytes 0
+InboundBytes 0
+UserCount: Time=> 2024-03-13 12:56:51.564913 +0800 CST m=+240.011531301 Count=> 0 Error=> (0x0,0x0)
+OutboundBytes 0
+InboundBytes 0
+time="2024-03-13T12:56:51+08:00" level=debug msg="type: room, servers: map[1341046e-fcc8-49fb-a0c4-742b800d30a7:0xc000223980]" source=pitaya
+time="2024-03-13T12:56:51+08:00" level=debug msg="type: connector, servers: map[f2675108-f845-4573-bf4f-63d0514a2e7b:0xc00038e080]" source=pitaya
+time="2024-03-13T12:56:51+08:00" level=info msg="SyncServers took : 838.7µs to run" source=pitaya
+UserCount: Time=> 2024-03-13 12:57:51.5650817 +0800 CST m=+300.011700001 Count=> 0 Error=> (0x0,0x0)
+OutboundBytes 0
+InboundBytes 0
+UserCount: Time=> 2024-03-13 12:57:51.5651568 +0800 CST m=+300.011775101 Count=> 0 Error=> (0x0,0x0)
+OutboundBytes 0
+InboundBytes 0
+UserCount: Time=> 2024-03-13 12:58:51.5645099 +0800 CST m=+360.011128201 Count=> 0 Error=> (0x0,0x0)
+OutboundBytes 0
+InboundBytes 0
+UserCount: Time=> 2024-03-13 12:58:51.5645732 +0800 CST m=+360.011191501 Count=> 0 Error=> (0x0,0x0)
+OutboundBytes 0
+InboundBytes 0
+time="2024-03-13T12:58:51+08:00" level=debug msg="type: room, servers: map[1341046e-fcc8-49fb-a0c4-742b800d30a7:0xc000223980]" source=pitaya
+time="2024-03-13T12:58:51+08:00" level=debug msg="type: connector, servers: map[f2675108-f845-4573-bf4f-63d0514a2e7b:0xc00038e080]" source=pitaya
+time="2024-03-13T12:58:51+08:00" level=info msg="SyncServers took : 669.1µs to run" source=pitaya
+time="2024-03-13T12:59:13+08:00" level=debug msg="subs channel size: 0, max: 0, dropped: 0" source=pitaya
+time="2024-03-13T12:59:13+08:00" level=debug msg="(14) processing message 1" source=pitaya
+time="2024-03-13T12:59:13+08:00" level=warning msg="pitaya/handler: room.room.move not found" source=pitaya
+UserCount: Time=> 2024-03-13 12:59:51.5652385 +0800 CST m=+420.011856901 Count=> 0 Error=> (0x0,0x0)
+OutboundBytes 0
+InboundBytes 0
+UserCount: Time=> 2024-03-13 12:59:51.5653372 +0800 CST m=+420.011955601 Count=> 0 Error=> (0x0,0x0)
+OutboundBytes 0
+InboundBytes 0
+time="2024-03-13T13:00:27+08:00" level=warning msg="got signal: terminated, shutting down..." source=pitaya
+time="2024-03-13T13:00:27+08:00" level=warning msg="server is stopping..." source=pitaya
+time="2024-03-13T13:00:27+08:00" level=info msg="closing all sessions, 0 sessions" source=pitaya
+time="2024-03-13T13:00:27+08:00" level=info msg="finished closing sessions" source=pitaya
+time="2024-03-13T13:00:27+08:00" level=debug msg="waiting for etcd revoke" source=pitaya
+time="2024-03-13T13:00:27+08:00" level=debug msg="server 1341046e-fcc8-49fb-a0c4-742b800d30a7 deleted by watcher" source=pitaya
+time="2024-03-13T13:00:27+08:00" level=debug msg="type: connector, servers: map[f2675108-f845-4573-bf4f-63d0514a2e7b:0xc00038e080]" source=pitaya
+time="2024-03-13T13:00:27+08:00" level=debug msg="type: room, servers: map[]" source=pitaya
+time="2024-03-13T13:00:27+08:00" level=debug msg="finished waiting for etcd revoke" source=pitaya
+time="2024-03-13T13:00:27+08:00" level=debug msg="stopping module: serviceDiscovery" source=pitaya
+time="2024-03-13T13:00:27+08:00" level=info msg="module: serviceDiscovery stopped!" source=pitaya
+time="2024-03-13T13:00:27+08:00" level=debug msg="stopping module: rpcServer" source=pitaya
+time="2024-03-13T13:00:27+08:00" level=info msg="module: rpcServer stopped!" source=pitaya
+time="2024-03-13T13:00:27+08:00" level=debug msg="stopping module: rpcClient" source=pitaya
+time="2024-03-13T13:00:27+08:00" level=info msg="module: rpcClient stopped!" source=pitaya
