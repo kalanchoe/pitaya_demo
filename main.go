@@ -141,7 +141,7 @@ func createAcceptor(port int, reporters []metrics.Reporter) acceptor.Acceptor {
 
 	rateLimitConfig := config.NewPitayaConfig(pConfig).Conn.RateLimiting
 
-	tcp := acceptor.NewWSAcceptor(fmt.Sprintf(":%d", port))
+	tcp := acceptor.NewTCPAcceptor(fmt.Sprintf(":%d", port))
 	return acceptorwrapper.WithWrappers(
 		tcp,
 		acceptorwrapper.NewRateLimitingWrapper(reporters, rateLimitConfig))
