@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/topfreegames/pitaya/v2"
+	"github.com/topfreegames/pitaya/v2/logger"
 	"time"
 
 	"github.com/google/uuid"
@@ -87,6 +88,8 @@ func (r *Room) Init() {
 
 // AfterInit component lifetime callback
 func (r *Room) AfterInit() {
+	logger.Log.Debug("[DEBU] Room AfterInit")
+
 	r.timer = pitaya.NewTimer(time.Minute, func() {
 		count, err := r.app.GroupCountMembers(context.Background(), "room")
 		println("UserCount: Time=>", time.Now().String(), "Count=>", count, "Error=>", err)
@@ -100,14 +103,14 @@ func (r *Room) AfterInit() {
 		for {
 			select {
 			case t := <-ticker.C:
-				fmt.Printf("[DEBU] step cur time: %v \n", t)
+				logger.Log.Debug("[DEBU] step cur time: %v \n", t)
 				for req := range r.MoveChan {
-					fmt.Printf("[DEBU] step move req: %v \n", req)
+					logger.Log.Debug("[DEBU] step move req: %v \n", req)
 					ctx := context.Background()
 					err := r.app.GroupBroadcast(ctx, "connector", "room", "onMove", req)
 					if err != nil {
-						println("Error broadcasting message")
-						println(err)
+						logger.Log.Debug("Error broadcasting message")
+						logger.Log.Debug(err)
 					}
 				}
 			}
