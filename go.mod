@@ -6,13 +6,13 @@ require (
 	github.com/google/uuid v1.6.0
 	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/viper v1.18.2
-	github.com/topfreegames/pitaya v1.1.12
 	github.com/topfreegames/pitaya/v2 v2.10.1
 	github.com/uber/jaeger-client-go v2.30.0+incompatible
 )
 
 require (
 	github.com/DataDog/datadog-go v4.8.3+incompatible // indirect
+	github.com/HdrHistogram/hdrhistogram-go v1.1.1 // indirect
 	github.com/Microsoft/go-winio v0.6.1 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bitly/go-simplejson v0.5.0 // indirect

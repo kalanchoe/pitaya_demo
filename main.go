@@ -135,7 +135,7 @@ func createAcceptor(port int, reporters []metrics.Reporter) acceptor.Acceptor {
 	// 5 requests in 1 minute. Doesn't make sense, just to test
 	// rate limiting
 	vConfig := viper.New()
-	vConfig.Set("pitaya.conn.ratelimiting.limit", 5)
+	vConfig.Set("pitaya.conn.ratelimiting.limit", 20)
 	vConfig.Set("pitaya.conn.ratelimiting.interval", time.Second)
 	pConfig := config.NewConfig(vConfig)
 
