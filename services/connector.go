@@ -55,6 +55,14 @@ func reply(code int32, msg string) (*protos.Response, error) {
 // GetSessionData gets the session data
 func (c *Connector) GetSessionData(ctx context.Context) (*SessionData, error) {
 	s := c.app.GetSessionFromCtx(ctx)
+	s.OnClose(func() {
+		ret := &protos.RPCRes{}
+		msg := protos.RPCMsg{}
+		err := c.app.RPC(ctx, "room.room.leave", ret, &msg)
+		if err != nil {
+			fmt.Println("room.room.leave rpc err")
+		}
+	})
 	res := &SessionData{
 		Data: s.GetData(),
 	}

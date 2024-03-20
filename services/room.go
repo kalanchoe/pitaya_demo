@@ -14,6 +14,14 @@ import (
 	"github.com/topfreegames/pitaya/v2/timer"
 )
 
+var PosMap = map[string]Vector3{}
+
+type Vector3 struct {
+	X float32
+	Y float32
+	Z float32
+}
+
 type (
 	// Room represents a component that contains a bundle of room related handler
 	// like Join/Message
@@ -32,9 +40,10 @@ type (
 	}
 
 	MoveReq struct {
-		X float32 `json:"X"`
-		Y float32 `json:"Y"`
-		Z float32 `json:"Z"`
+		X   float32 `json:"X"`
+		Y   float32 `json:"Y"`
+		Z   float32 `json:"Z"`
+		UID string  `json:"-"`
 	}
 
 	// Stats exports the room status
@@ -106,12 +115,17 @@ func (r *Room) AfterInit() {
 				logger.Log.Debug("[DEBU] step cur time: %v \n", t)
 				for req := range r.MoveChan {
 					logger.Log.Debug("[DEBU] step move req: %v \n", req)
-					ctx := context.Background()
-					err := r.app.GroupBroadcast(ctx, "connector", "room", "onMove", req)
-					if err != nil {
-						logger.Log.Debug("Error broadcasting message")
-						logger.Log.Debug(err)
+					PosMap[req.UID] = Vector3{
+						X: req.X,
+						Y: req.Y,
+						Z: req.Z,
 					}
+				}
+				ctx := context.Background()
+				err := r.app.GroupBroadcast(ctx, "connector", "room", "onMove", PosMap)
+				if err != nil {
+					logger.Log.Debug("Error broadcasting message")
+					logger.Log.Debug(err)
 				}
 			}
 		}
@@ -191,10 +205,14 @@ func (r *Room) Join(ctx context.Context) (*protos.JoinResponse, error) {
 
 func (r *Room) Move(ctx context.Context, buf []byte) {
 	logger := pitaya.GetDefaultLoggerFromCtx(ctx)
+	s := r.app.GetSessionFromCtx(ctx)
+	uid := s.UID()
 
 	var msg MoveReq
 
 	json.Unmarshal(buf, &msg)
+
+	msg.UID = uid
 
 	r.MoveChan <- msg
 
@@ -239,4 +257,16 @@ func (r *Room) SendRPC(ctx context.Context, msg *protos.SendRPCMsg) (*protos.RPC
 // MessageRemote just echoes the given message
 func (r *Room) MessageRemote(ctx context.Context, msg *protos.UserMessage, b bool, s string) (*protos.UserMessage, error) {
 	return msg, nil
+}
+
+func (c *Room) Leave(ctx context.Context, msg *protos.RPCMsg) (*protos.RPCRes, error) {
+	fmt.Printf("received a leave call with this message: %s\n", msg.GetMsg())
+	logger := pitaya.GetDefaultLoggerFromCtx(ctx)
+	s := c.app.GetSessionFromCtx(ctx)
+	uid := s.UID()
+	logger.Info("user %v leave", uid)
+	delete(PosMap, uid)
+	return &protos.RPCRes{
+		Msg: msg.GetMsg(),
+	}, nil
 }
