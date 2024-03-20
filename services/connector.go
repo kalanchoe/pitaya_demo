@@ -8,6 +8,7 @@ import (
 	"github.com/topfreegames/pitaya/v2/component"
 	"github.com/topfreegames/pitaya/v2/examples/demo/protos"
 	pitayaprotos "github.com/topfreegames/pitaya/v2/protos"
+	"pitaya_demo/proto/pitaya_demo/protos/user"
 )
 
 // ConnectorRemote is a remote that will receive rpc's
@@ -56,7 +57,11 @@ func (c *Connector) GetSessionData(ctx context.Context) (*SessionData, error) {
 	s := c.app.GetSessionFromCtx(ctx)
 	s.OnClose(func() {
 		logger := pitaya.GetDefaultLoggerFromCtx(ctx)
-		logger.Info("onclose uid: %v", s.UID())
+		logger.Info("onclose uid: %s", s.UID())
+		req := &user.LeaveRequest{}
+		req.Uid = s.UID()
+		logger.Info("req uid:%s", req.GetUid())
+		c.app.RPC(context.Background(), "room.room.leave", &protos.Response{}, req)
 	})
 	res := &SessionData{
 		Data: s.GetData(),
