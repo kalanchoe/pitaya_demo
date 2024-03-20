@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+option go_package = "pitaya_demo/protos/user";
+package user.app;
+
+message LeaveRequest {
+  string uid = 1;
+}

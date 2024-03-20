@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"github.com/topfreegames/pitaya/v2"
 	"github.com/topfreegames/pitaya/v2/logger"
+	"pitaya_demo/proto/pitaya_demo/protos/user"
 	"time"
 
 	"github.com/google/uuid"
@@ -257,14 +258,11 @@ func (r *Room) MessageRemote(ctx context.Context, msg *protos.UserMessage, b boo
 	return msg, nil
 }
 
-func (c *Room) Leave(ctx context.Context, msg *protos.RPCMsg) (*protos.RPCRes, error) {
-	fmt.Printf("received a leave call with this message: %s\n", msg.GetMsg())
+func (c *Room) Leave(ctx context.Context, msg *user.LeaveRequest) (*protos.RPCRes, error) {
+	fmt.Printf("received a leave call with this message: %s\n", msg.GetUid())
 	logger := pitaya.GetDefaultLoggerFromCtx(ctx)
-	s := c.app.GetSessionFromCtx(ctx)
-	uid := s.UID()
+	uid := msg.GetUid()
 	logger.Info("user %v leave", uid)
 	delete(PosMap, uid)
-	return &protos.RPCRes{
-		Msg: msg.GetMsg(),
-	}, nil
+	return &protos.RPCRes{}, nil
 }

@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/topfreegames/pitaya/v2"
+	"pitaya_demo/proto/pitaya_demo/protos/user"
 
 	"github.com/topfreegames/pitaya/v2/component"
 	"github.com/topfreegames/pitaya/v2/examples/demo/protos"
@@ -56,7 +57,7 @@ func reply(code int32, msg string) (*protos.Response, error) {
 func (c *Connector) GetSessionData(ctx context.Context) (*SessionData, error) {
 	s := c.app.GetSessionFromCtx(ctx)
 	s.OnClose(func() {
-		ret := &protos.RPCRes{}
+		ret := &user.LeaveRequest{Uid: s.UID()}
 		msg := protos.RPCMsg{}
 		err := c.app.RPC(ctx, "room.room.leave", ret, &msg)
 		if err != nil {
