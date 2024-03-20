@@ -106,26 +106,24 @@ func (r *Room) AfterInit() {
 		println("InboundBytes", r.Stats.OutboundBytes)
 	})
 
-	ticker := time.NewTicker(time.Second)
+	ticker := time.NewTicker(100 * time.Millisecond)
 
 	go func() {
 		for {
 			select {
-			case t := <-ticker.C:
-				logger.Log.Debug("[DEBU] step cur time: %v \n", t)
-				for req := range r.MoveChan {
-					logger.Log.Debug("[DEBU] step move req: %v \n", req)
-					PosMap[req.UID] = Vector3{
-						X: req.X,
-						Y: req.Y,
-						Z: req.Z,
-					}
-				}
+			case <-ticker.C:
 				ctx := context.Background()
 				err := r.app.GroupBroadcast(ctx, "connector", "room", "onMove", PosMap)
 				if err != nil {
 					logger.Log.Debug("Error broadcasting message")
 					logger.Log.Debug(err)
+				}
+			case req := <-r.MoveChan:
+				logger.Log.Debug("[DEBU] step move req: %v \n", req)
+				PosMap[req.UID] = Vector3{
+					X: req.X,
+					Y: req.Y,
+					Z: req.Z,
 				}
 			}
 		}
