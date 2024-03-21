@@ -109,7 +109,7 @@ func (r *Room) AfterInit() {
 		println("InboundBytes", r.Stats.OutboundBytes)
 	})
 
-	ticker := time.NewTicker(400 * time.Millisecond)
+	ticker := time.NewTicker(100 * time.Millisecond)
 
 	go func() {
 		for {
