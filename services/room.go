@@ -109,14 +109,18 @@ func (r *Room) AfterInit() {
 		println("InboundBytes", r.Stats.OutboundBytes)
 	})
 
-	ticker := time.NewTicker(100 * time.Millisecond)
+	ticker := time.NewTicker(200 * time.Millisecond)
 
 	go func() {
 		for {
 			select {
 			case <-ticker.C:
-				ctx := context.Background()
-				err := r.app.GroupBroadcast(ctx, "connector", "room", "onMove", PosMap)
+				var uids []string
+				for uid := range PosMap {
+					uids = append(uids, uid)
+				}
+				_, err := r.app.SendPushToUsers("onMove", PosMap, uids, "connector")
+				//err := r.app.GroupBroadcast(ctx, "connector", "room", "onMove", PosMap)
 				if err != nil {
 					logger.Log.Debug("Error broadcasting message")
 					logger.Log.Debug(err)
