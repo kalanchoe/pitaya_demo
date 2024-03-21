@@ -28,10 +28,11 @@ type (
 	// like Join/Message
 	Room struct {
 		component.Base
-		timer    *timer.Timer
-		app      pitaya.Pitaya
-		Stats    *protos.Stats
-		MoveChan chan MoveReq
+		timer     *timer.Timer
+		app       pitaya.Pitaya
+		Stats     *protos.Stats
+		MoveChan  chan MoveReq
+		LeaveChan chan string
 	}
 
 	// UserMessage represents a message that user sent
@@ -126,6 +127,9 @@ func (r *Room) AfterInit() {
 					Y: req.Y,
 					Z: req.Z,
 				}
+			case uid := <-r.LeaveChan:
+				logger.Log.Debug("[DEBU] leave uid: %v\n", uid)
+				delete(PosMap, uid)
 			}
 		}
 	}()
@@ -263,6 +267,6 @@ func (c *Room) Leave(ctx context.Context, msg *user.LeaveRequest) (*protos.RPCRe
 	logger := pitaya.GetDefaultLoggerFromCtx(ctx)
 	uid := msg.GetUid()
 	logger.Info("user %v leave", uid)
-	delete(PosMap, uid)
+	c.LeaveChan <- uid
 	return &protos.RPCRes{}, nil
 }
