@@ -86,9 +86,10 @@ type (
 // NewRoom returns a new room
 func NewRoom(app pitaya.Pitaya) *Room {
 	return &Room{
-		app:      app,
-		Stats:    &protos.Stats{},
-		MoveChan: make(chan MoveReq, 100),
+		app:       app,
+		Stats:     &protos.Stats{},
+		MoveChan:  make(chan MoveReq, 10000),
+		LeaveChan: make(chan string, 10000),
 	}
 }
 
