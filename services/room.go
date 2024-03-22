@@ -17,12 +17,12 @@ import (
 )
 
 var PosMap = sync.Map{}
+var PushT = sync.Map{}
 
 type Vector3 struct {
 	X float32
 	Y float32
 	Z float32
-	T uint32
 }
 
 type (
@@ -122,10 +122,12 @@ func (r *Room) AfterInit() {
 				PosMap.Range(func(key, value any) bool {
 					uids = append(uids, key.(string))
 					pos[key.(string)] = value.(Vector3)
-					v := value.(Vector3)
-					v.T += 1
-					pos[key.(string)] = v
-					logger.Log.Debug("Push onMove T %v", v.T)
+					t, _ := PushT.Load(key.(string))
+					T := t.(int)
+					T += 1
+					PushT.Store(key.(string), T)
+
+					logger.Log.Debugf("Push onMove T %v", T)
 					return true
 				})
 				if len(uids) != 0 {
