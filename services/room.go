@@ -122,7 +122,7 @@ func (r *Room) AfterInit() {
 				PosMap.Range(func(key, value any) bool {
 					uids = append(uids, key.(string))
 					pos[key.(string)] = value.(Vector3)
-					t, _ := PushT.Load(key.(string))
+					t, _ := PushT.LoadOrStore(key.(string), 0)
 					T := t.(int)
 					T += 1
 					PushT.Store(key.(string), T)
