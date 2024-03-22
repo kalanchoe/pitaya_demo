@@ -7,6 +7,7 @@ import (
 	"github.com/topfreegames/pitaya/v2"
 	"github.com/topfreegames/pitaya/v2/logger"
 	"pitaya_demo/proto/pitaya_demo/protos/user"
+	"sync"
 	"time"
 
 	"github.com/google/uuid"
@@ -15,7 +16,7 @@ import (
 	"github.com/topfreegames/pitaya/v2/timer"
 )
 
-var PosMap = map[string]Vector3{}
+var PosMap = sync.Map{}
 
 type Vector3 struct {
 	X float32
@@ -116,9 +117,10 @@ func (r *Room) AfterInit() {
 			select {
 			case <-ticker.C:
 				var uids []string
-				for uid := range PosMap {
-					uids = append(uids, uid)
-				}
+				PosMap.Range(func(key, value any) bool {
+					uids = append(uids, key.(string))
+					return true
+				})
 				_, err := r.app.SendPushToUsers("onMove", PosMap, uids, "connector")
 				//err := r.app.GroupBroadcast(ctx, "connector", "room", "onMove", PosMap)
 				if err != nil {
@@ -127,14 +129,14 @@ func (r *Room) AfterInit() {
 				}
 			case req := <-r.MoveChan:
 				logger.Log.Debug("[DEBU] step move req: %v \n", req)
-				PosMap[req.UID] = Vector3{
+				PosMap.Store(req.UID, Vector3{
 					X: req.X,
 					Y: req.Y,
 					Z: req.Z,
-				}
+				})
 			case uid := <-r.LeaveChan:
 				logger.Log.Debug("[DEBU] leave uid: %v\n", uid)
-				delete(PosMap, uid)
+				PosMap.Delete(uid)
 			}
 		}
 	}()
