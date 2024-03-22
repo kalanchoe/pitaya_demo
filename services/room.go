@@ -117,10 +117,10 @@ func (r *Room) AfterInit() {
 			select {
 			case <-ticker.C:
 				var uids []string
-				pos := make(map[any]any)
+				pos := make(map[string]Vector3)
 				PosMap.Range(func(key, value any) bool {
 					uids = append(uids, key.(string))
-					pos[key] = value
+					pos[key.(string)] = value.(Vector3)
 					return true
 				})
 				_, err := r.app.SendPushToUsers("onMove", pos, uids, "connector")
