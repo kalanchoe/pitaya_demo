@@ -9,8 +9,6 @@ import (
 	"github.com/topfreegames/pitaya/v2/metrics"
 	"os"
 	"pitaya_demo/services"
-	"time"
-
 	"strings"
 
 	"github.com/sirupsen/logrus"
@@ -135,8 +133,6 @@ func createAcceptor(port int, reporters []metrics.Reporter) acceptor.Acceptor {
 	// 5 requests in 1 minute. Doesn't make sense, just to test
 	// rate limiting
 	vConfig := viper.New()
-	vConfig.Set("pitaya.conn.ratelimiting.limit", 120)
-	vConfig.Set("pitaya.conn.ratelimiting.interval", time.Second)
 	pConfig := config.NewConfig(vConfig)
 
 	rateLimitConfig := config.NewPitayaConfig(pConfig).Conn.RateLimiting
