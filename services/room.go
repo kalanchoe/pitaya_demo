@@ -22,6 +22,7 @@ type Vector3 struct {
 	X float32
 	Y float32
 	Z float32
+	T uint32
 }
 
 type (
@@ -121,13 +122,20 @@ func (r *Room) AfterInit() {
 				PosMap.Range(func(key, value any) bool {
 					uids = append(uids, key.(string))
 					pos[key.(string)] = value.(Vector3)
+					v := value.(Vector3)
+					v.T += 1
+					pos[key.(string)] = v
+					logger.Log.Debug("Push onMove T %v", v.T)
 					return true
 				})
-				_, err := r.app.SendPushToUsers("onMove", pos, uids, "connector")
-				//err := r.app.GroupBroadcast(ctx, "connector", "room", "onMove", PosMap)
-				if err != nil {
-					logger.Log.Debug("Error broadcasting message")
-					logger.Log.Debug(err)
+				if len(uids) != 0 {
+					_, err := r.app.SendPushToUsers("onMove", pos, uids, "connector")
+
+					//err := r.app.GroupBroadcast(ctx, "connector", "room", "onMove", PosMap)
+					if err != nil {
+						logger.Log.Debug("Error broadcasting message")
+						logger.Log.Debug(err)
+					}
 				}
 			case req := <-r.MoveChan:
 				logger.Log.Debug("[DEBU] step move req: %v \n", req)
