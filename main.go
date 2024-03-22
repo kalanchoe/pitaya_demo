@@ -5,7 +5,6 @@ import (
 	"flag"
 	"fmt"
 	"github.com/topfreegames/pitaya/v2"
-	"github.com/topfreegames/pitaya/v2/acceptorwrapper"
 	"github.com/topfreegames/pitaya/v2/metrics"
 	"os"
 	"pitaya_demo/services"
@@ -132,13 +131,8 @@ func createAcceptor(port int, reporters []metrics.Reporter) acceptor.Acceptor {
 
 	// 5 requests in 1 minute. Doesn't make sense, just to test
 	// rate limiting
-	vConfig := viper.New()
-	pConfig := config.NewConfig(vConfig)
 
-	rateLimitConfig := config.NewPitayaConfig(pConfig).Conn.RateLimiting
+	//rateLimitConfig := config.NewPitayaConfig(pConfig).Conn.RateLimiting
 
-	tcp := acceptor.NewWSAcceptor(fmt.Sprintf(":%d", port))
-	return acceptorwrapper.WithWrappers(
-		tcp,
-		acceptorwrapper.NewRateLimitingWrapper(reporters, rateLimitConfig))
+	return acceptor.NewWSAcceptor(fmt.Sprintf(":%d", port))
 }
