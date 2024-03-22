@@ -117,11 +117,13 @@ func (r *Room) AfterInit() {
 			select {
 			case <-ticker.C:
 				var uids []string
+				pos := make(map[any]any)
 				PosMap.Range(func(key, value any) bool {
 					uids = append(uids, key.(string))
+					pos[key] = value
 					return true
 				})
-				_, err := r.app.SendPushToUsers("onMove", PosMap, uids, "connector")
+				_, err := r.app.SendPushToUsers("onMove", pos, uids, "connector")
 				//err := r.app.GroupBroadcast(ctx, "connector", "room", "onMove", PosMap)
 				if err != nil {
 					logger.Log.Debug("Error broadcasting message")
